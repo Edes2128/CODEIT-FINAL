@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <header className="App-header">
-        <div className="logo"><img src="4.jpg" alt=""/></div>
+        <div className="logo"><a href="/"><img src="4.jpg" alt=""/></a></div>
         <div className="links">
         <a className="instagram" href="https://www.instagram.com/develop_your_brand/" target="_blank"><i className="fa fa-instagram"></i></a>
         <a className="facebook" href="https://www.facebook.com/Code-IT-shpk-1922218121419737" target="_blank"><i className="fa fa-facebook"></i></a>
