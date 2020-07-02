@@ -19,8 +19,7 @@ html{
 }
 
 .App-header{
-  position: relative;
-  max-width: 1140px;
+  max-width: 1120px;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
@@ -29,7 +28,6 @@ html{
 .logo{
   height: 100px;
   width: 100px;
-  margin-right: 300px;
 }
 
 .links{
@@ -37,13 +35,12 @@ html{
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .logo img{
   width: 100px;
   height: 100px;
-
 }
 
 .navbar{
@@ -57,9 +54,9 @@ html{
   margin-top: 30px;
   background-color: #f8f7f7;
 }
+
 .navbar h3 {
   color: #61A0E2;
-
 }
 
 .navbar ul {
@@ -71,7 +68,7 @@ html{
 
 .nav-li{
   margin: 10px;
-  border: 1px solid #61A0E2;
+  border: 1px solid #ffffff;
   padding: 5px 20px;
   border-radius: 10px;
   font-size: 16px;
@@ -89,20 +86,11 @@ html{
   background-color:  #1d76bb;
 }
 
-.instagram{
+.a-link{
   color: #595959;
   font-size: 30px;
 }
 
-.facebook{
-  color: #595959;
-  font-size: 30px;
-}
-
-.linkedin{
-  color: #595959;
-  font-size: 30px;
-}
 .container{
   margin: 0 auto;
   max-width: 1140px;
@@ -422,3 +410,209 @@ border: 1px solid gray;
   background-color: #1d76bb;
   color: white;
 }
+@media (min-width: 1000px) and (max-width: 1149px) {
+  .container{
+    margin: 0 auto;
+    max-width: 990px;
+  }
+}
+@media (min-width: 765px) and (max-width: 999px) {
+  .container{
+    margin: 0 auto;
+    max-width: 990px;
+  }
+}
+@media (max-width: 764px) {
+  .container{
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  
+  .App-header{
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    margin: 0 auto;
+  }
+
+.logo{
+  margin-right: 0;
+  justify-content: flex-start;
+}
+  .links{
+    justify-content: flex-end;
+    
+  }
+  
+  .a-link{
+    margin: 0 7px;
+    font-size: 35px;
+  }
+  
+  .navbar{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .nav-li{
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+
+  .container{
+    width: 100%;
+  }
+
+  .nje{
+    padding: 10px;
+  }
+  .p-nje{
+    margin: 10px 0 5px 0;
+  }
+
+  .website{
+    width: 100%;
+  }
+
+  .margin-pyetjet{
+    margin: 3px 0 ;
+    font-size: 15px;
+  }
+
+  input[type="radio"] {
+    height: 10px;
+  }
+
+  label{
+    font-size: 14px;
+  }
+  .choices{
+      display: flex;
+      flex-direction: column;
+  }
+  .vazhdimi-pyetja1{
+    
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .flex-1{
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .flex-1 div {
+    margin:  8px 0;
+  }
+
+  .flex-2{
+    padding: 15px;
+    flex-direction: column;
+    margin:0;
+  }
+
+  .flex-2 div{
+    margin: 8px 0;
+  }
+  .image-choice{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .p-dy{
+      margin: 0 10px;
+  }
+    .flex-image input{
+        margin: 4px 0 25px 0;
+    }
+
+ 
+.tre-kater{
+
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  flex-direction: column;
+  padding: 10px;  
+}
+.tre-kater div {
+  margin: 15px 0 0 0;
+}
+
+.tre-kater input{
+  margin-top: 10px;
+}
+#p3{
+  width: 100%;
+}
+
+.pes-gjashte{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  }
+
+  .pes-gjashte div{
+      margin: 15px 0 0 0;
+  }
+
+  .pes-gjashte input{
+    margin-top: 10px;
+  }
+
+#p5{
+  width: 100%;
+}
+
+.shtate{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+}
+.shtate input {
+  margin-top: 10px;
+}
+
+.tete{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+
+.checkboxes-choice{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  flex-direction: column;
+}
+.flex-check1 input{
+margin: 5px 0 0 0 ;
+}
+
+.flex-check2 input{
+
+  margin: 5px 0 0 0 ;
+}
+
+.flex-check3 input{
+  margin: 5px 0 0 0 ;
+}
+
+}
+
