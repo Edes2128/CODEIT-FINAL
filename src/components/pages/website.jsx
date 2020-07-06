@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 
 const Website = () => {
-
     const [pyetja1, shtovlere] = useState('');
     const [isChecked, setIsChecked] = useState(false);
     const [duaMenaxhimSocial, vendosMenaxhimSocial] = useState(false);
@@ -10,46 +9,46 @@ const Website = () => {
     const [duaFushatMarketingu, vendoFushatMarketingu] = useState(false);
     const [markaRegjistruar, regjistroMarken] = useState(false);
 
-
     const onChange = (e) => {
 
         shtovlere(e.target.value);
     }
 
     return (
+
         <div className="website">
             <form className="form" >
                 <div className="nje" id="pyetja1">
                     <p className="p-nje">1.Cila eshte topologjia e biznesit tuaj?</p>
 
                     <div className="margin-pyetjet">
-                    <input type="radio" value="prezantues" id="prezantues" name="tipi" onClick={onChange} />
-                    <label htmlFor="prezantues">Prezantues</label><br></br>
+                        <input type="radio" value="prezantues" id="prezantues" name="tipi" onClick={onChange} />
+                        <label htmlFor="prezantues">Prezantues</label><br></br>
                     </div>
 
                     <div className="margin-pyetjet">
-                    <input type="radio" value="ecommerce" id="ecommerce" name="tipi" onClick={onChange} />
-                    <label htmlFor="ecommerce">E-commerce</label><br />
+                        <input type="radio" value="ecommerce" id="ecommerce" name="tipi" onClick={onChange} />
+                        <label htmlFor="ecommerce">E-commerce</label><br />
                     </div>
 
                     <div className="margin-pyetjet">
-                    <input type="radio" value="booking" id="booking" name="tipi" onClick={onChange} />
-                    <label htmlFor="booking">Booking</label><br />
+                        <input type="radio" value="booking" id="booking" name="tipi" onClick={onChange} />
+                        <label htmlFor="booking">Booking</label><br />
                     </div>
 
                     <div className="margin-pyetjet">
-                    <input type="radio" value="portale" id="portale" name="tipi" onClick={onChange} />
-                    <label htmlFor="portale">Portale</label><br />
+                        <input type="radio" value="portale" id="portale" name="tipi" onClick={onChange} />
+                        <label htmlFor="portale">Portale</label><br />
                     </div>
 
                     <div className="margin-pyetjet">
-                    <input type="radio" value="delivery" id="delivery" name="tipi" onClick={onChange} />
-                    <label htmlFor="delivery">Delivery</label><br />
+                        <input type="radio" value="delivery" id="delivery" name="tipi" onClick={onChange} />
+                        <label htmlFor="delivery">Delivery</label><br />
                     </div>
 
                     <div className="margin-pyetjet">
-                    <input type="radio" value="reference" id="reference" name="tipi" onClick={onChange} />
-                    <label htmlFor="reference">Web Reference</label>
+                        <input type="radio" value="reference" id="reference" name="tipi" onClick={onChange} />
+                        <label htmlFor="reference">Web Reference</label>
                     </div>
                 </div>
 
@@ -125,13 +124,13 @@ const Website = () => {
                     <p className="p-dy">2.Kerkesat e dizajnit ne WEB</p>
                     <div className="choices">
                         <div className="flex-image">
-                            <label htmlFor="thjeshte"><img className="img" src="Dosja.jpg" alt="dosja" /></label>
+                            <label htmlFor="thjeshte"><img className="img" src="golda.jpg" alt="golda" /></label>
                             <label htmlFor="thjeshte">I thjeshte</label>
                             <input type="radio" name="foto" value="thjeshte" id="thjeshte" />
                         </div>
 
                         <div className="flex-image">
-                            <label htmlFor="avanc"><img className="img" src="golda.jpg" alt="golda" /></label>
+                            <label htmlFor="avanc"><img className="img" src="Dosja.jpg" alt="dosja" /></label>
                             <label htmlFor="avanc">I Avancuar</label>
                             <input type="radio" name="foto" value="avanc" id="avanc" />
                         </div>
@@ -170,7 +169,7 @@ const Website = () => {
                     <div id="p5">
                         <p>5.Sa faqe kryesore ka web-i?</p>
                         <input type="radio" name="nrfaqeve" id="pes" value="pes" />
-                        <label htmlFor="pes">1-5(Home,Rreth Nesh,Sherbime,Galeri,Kontakt)</label><br />
+                        <label htmlFor="pes">1-5<span className="span">(Home,Rreth Nesh,Sherbime,Galeri,Kontakt)</span></label><br />
 
                         <input type="radio" name="nrfaqeve" id="gjasht" value="gjasht" />
                         <label htmlFor="gjasht">6-11</label><br />
@@ -208,7 +207,7 @@ const Website = () => {
                     <label htmlFor="shum">Shume e rendesishme</label>
                 </div>
                 <div className="tete">
-                    <p>8.Ne web do te te kete element si: <span>(mund te zgjidhni me shume se 1 alternative)</span></p>
+                    <p>8.Ne web do te te kete element si: <span className="span">(mund te zgjidhni me shume se 1 alternative)</span></p>
                     <div className="checkboxes-choice">
 
                         <div className="flex-check1">
@@ -275,7 +274,6 @@ const Website = () => {
 
                     <h3>Deshironi marketing?</h3>
 
-
                     <div className="switch_box box_4">
                         <div className="input_wrapper">
                             <input type="checkbox" className="switch_4" onChange={(event) => setIsChecked(event.currentTarget.checked)} checked={isChecked} />
@@ -293,7 +291,7 @@ const Website = () => {
                     <>
                         <div className="nenta">
 
-                            <p>9.Biznesit tuaj i nevojitet:<span>(mund te zgjidhni me shume se 1 alternative)</span></p>
+                            <p>9.Biznesit tuaj i nevojitet:<span className="span">(mund te zgjidhni me shume se 1 alternative)</span></p>
                             <div className="marketing-9">
 
                                 <input type="checkbox" name="nevojitet" id="emer" value="emer" />
@@ -393,7 +391,7 @@ const Website = () => {
                             {duaFushatMarketingu === true &&
                                 <div className="twelve-right">
 
-                                    <p>Ku deshironi te promovoheni?<br /><span>(mund te zgjidhni me shume se 1 alternative)</span></p>
+                                    <p>Ku deshironi te promovoheni?<br /><span className="span">(mund te zgjidhni me shume se 1 alternative)</span></p>
                                     <input type="checkbox" name="promovim" id="tv" value="tv" />
                                     <label htmlFor="tv">TV</label><br />
 
@@ -431,21 +429,27 @@ const Website = () => {
                         </div>
                     </>
                 }
-                <div className="website-form">
+                <div className="aplikacion">
 
-                    <div className="submit-web">
-                        <div className="left">
-                            <p>Plotesoni fushat duke na derguar automatikisht te dhenat e kerkeses</p>
-                            <input type="text" placeholder="Emri*" required />
-                            <input type="email" placeholder="Email*" required />
-                            <input type="tel" placeholder="Tel*" required />
+                    <form className="form-aplikacion" >
+
+                        <div className="submit-app">
+                            <div className="left">
+                                <p>Plotesoni fushat duke na derguar automatikisht te dhenat e kerkeses</p>
+                                <input type="text" placeholder="Emri*" required />
+                                <input type="email" placeholder="Email*" required />
+                                <input type="tel" placeholder="Tel*" required />
+
+                            </div>
+                            <div className="right">
+                                <textarea name="kerkesetjeter" id="kerkesetjeter" placeholder="Kerkese Tjeter" cols="30" rows="10"></textarea>
+                            </div>
+
+                        </div>
+                        <div className="submit">
                             <input type="submit" value="Dergo Kerkesen" />
                         </div>
-                        <div className="right">
-                            <textarea name="kerkesetjeter" id="kerkesetjeter" placeholder="Kerkese Tjeter" cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-
+                    </form>
                 </div>
             </form>
         </div>
