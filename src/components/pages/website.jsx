@@ -180,7 +180,7 @@ const Website = () => {
                 "Access-Control-Allow-Origin":"*"
         },
             body: JSON.stringify(payload)
-    }).then(data => console.log(data)).catch(e => console.log(e))
+    })
     shtovlere('prezantues')
     shtovlere2('thjeshte')
     shtovlere3('nje')

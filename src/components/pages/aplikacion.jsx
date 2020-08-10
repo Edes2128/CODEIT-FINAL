@@ -26,7 +26,10 @@ const Aplikacion = () => {
         fetch("https://codeit-last.herokuapp.com/app",
         {
             method: "POST",
-            headers : {"Content-Type": "application/json"},
+            headers : {
+                "Content-Type": "application/json",
+            "Access-Control-Allow-Origin":"*"
+        },
             body: JSON.stringify(payload)
     }).catch(e => console.log(e))
     vendosEmer('')
