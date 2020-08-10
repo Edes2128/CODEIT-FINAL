@@ -172,7 +172,7 @@ const Website = () => {
             markaRegjistruar,
         };
 
-        fetch("https://floating-bayou-00934.herokuapp.com/website",
+        fetch("https://codeit-last.herokuapp.com/website",
         {
             method: "POST",
             headers : {

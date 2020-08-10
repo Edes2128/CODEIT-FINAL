@@ -187,7 +187,7 @@ const Marketing = () => {
             markaRegjistruar
         };
 
-        fetch("https://floating-bayou-00934.herokuapp.com//market",
+        fetch("https://codeit-last.herokuapp.com/market",
         {
             method: "POST",
             headers : {"Content-Type": "application/json"},

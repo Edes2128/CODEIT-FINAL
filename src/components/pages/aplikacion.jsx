@@ -23,7 +23,7 @@ const Aplikacion = () => {
             kerkeseTjeter : kerkeseTjeter
         };
 
-        fetch("https://floating-bayou-00934.herokuapp.com//app",
+        fetch("https://codeit-last.herokuapp.com/app",
         {
             method: "POST",
             headers : {"Content-Type": "application/json"},
