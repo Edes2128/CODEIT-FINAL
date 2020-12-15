@@ -1,7 +1,8 @@
 import React, { useState ,useEffect} from 'react'
-
+import translate from '../../i18n/translate';
 const Website = () => {
     const [topologjia, shtovlere] = useState('prezantues');
+    const [linkRefer,shtoLinkRefer] = useState('')
     const [produktetNeWeb,shtovlere1a] = useState('')
     const [hedhjaProdukteveEcommerce,shtovlere1b] = useState('')
     const [platforma,shtovlere1c] = useState('')
@@ -40,7 +41,8 @@ const Website = () => {
             shtovlere1d('')
         }
     },[topologjia])
-
+console.log(topologjia)
+console.log(linkRefer)
     const pytetja13 = (e) => {
 
         const item = e.target
@@ -54,6 +56,9 @@ const Website = () => {
 
     const onChange = (e) => {
         shtovlere(e.target.value);
+
+
+
     }
 
     const pyetjaNjeA = (e) =>{
@@ -170,6 +175,7 @@ const Website = () => {
             setiFotografikNeMuaj,
             vendiPromovimit ,
             markaRegjistruar,
+            linkRefer
         };
 
         fetch("https://codeit-last.herokuapp.com/website",
@@ -203,6 +209,7 @@ const Website = () => {
     vendoFushatMarketingu(false)
     vendosSetFotografik(false)
     vendosMenaxhimSocial(false)
+    shtoLinkRefer('')
     }
 
     return (
@@ -225,57 +232,57 @@ const Website = () => {
         <div className="website">
             <form className="form" onSubmit={onSubmit}>
                 <div className="nje" id="pyetja1">
-                    <p className="p-nje">1.Cila eshte topologjia e biznesit tuaj?</p>
+                    <p className="p-nje">1.{translate('pytja1')}</p>
 
                     <div className="margin-pyetjet">
                         <label className="label">
                         <input type="radio" value="prezantues"  id="prezantues" name="tipi" checked={topologjia === 'prezantues' ? true : false } onChange={onChange} />
-                        <span>Prezantues</span>
+                        <span>{translate('alternativa1pytja1')}</span>
                         </label>
                     </div>
 
                     <div className="margin-pyetjet">
                         <label className="label">
                         <input type="radio" value="ecommerce" id="ecommerce" name="tipi" onChange={onChange} />
-                        <span>E-commerce</span>
+                        <span>{translate('alternativa2pytja1')}</span>
                         </label>
                     </div>
 
                     <div className="margin-pyetjet">
                         <label className="label">
                         <input type="radio" value="booking" id="booking" name="tipi" onChange={onChange} />
-                        <span>Booking</span>
+                        <span>{translate('alternativa3pytja1')}</span>
                         </label>
                     </div>
 
                     <div className="margin-pyetjet">
                         <label className="label">
                         <input type="radio" value="portale" id="portale" name="tipi" onChange={onChange} />
-                      <span>Portale</span>
+                      <span>{translate('alternativa4pytja1')}</span>
                       </label>
                     </div>
 
                     <div className="margin-pyetjet">
                         <label className="label">
                         <input type="radio" value="delivery" id="delivery" name="tipi" onChange={onChange} />
-                        <span>Delivery</span>
+                        <span>{translate('alternativa5pytja1')}</span>
                         </label>
                     </div>
 
                     <div className="margin-pyetjet">
                         <label className="label">
-                        <input type="radio" value="reference" id="reference" name="tipi" onChange={onChange} />
-                        <span>Web Reference</span>
+                        <input type="radio" value={'reference'} id="reference" name="tipi" onClick={onChange} />
+                        <span>{translate('alternativa6pytja1')}</span>
                         </label>
+                        <input type="text" className="refer-input" disabled={topologjia === 'reference' ? false : true} onChange={(e) => shtoLinkRefer(e.target.value)} style={{border:'none',borderBottom:'1px solid gray',outline:'none',padding:'0px 10px',marginLeft:'10px'}}/>
                     </div>
                 </div>
-
 
                 {topologjia === 'ecommerce' &&
                     <div id="pyetja1-vazhdimi" className="vazhdimi-pyetja1">
                         <div className="flex-1">
                             <div id="1a">
-                                <p className="margin-bottom">a.Sa produkte do te permbaj web-i?</p>
+                                    <p className="margin-bottom">a.{translate('pytj1a')}</p>
 
                                 <label className="label">
                                 <input type="radio" name="sasia" value="50" id="50" checked={produktetNeWeb === '50' ? true : false} onChange={pyetjaNjeA}/>
@@ -292,31 +299,8 @@ const Website = () => {
                                 <span>300+</span>
                                 </label>
                             </div>
-
-                            <div id="1b">
-                                <p className="margin-bottom">b.Kush do te te merret me hedhjen e produkteve?</p>
-
-                                <label className="label">
-                                <input type="radio" name="pergjegjesi" value="codeit" id="codeit" checked={hedhjaProdukteveEcommerce === 'codeit' ? true : false} onChange={pyetjaNjeB}/>
-                                <span>codeIT</span>
-                                </label><br/>
-
-                                <label className="label">
-                                <input type="radio" name="pergjegjesi" value="klienti" id="klienti" onChange={pyetjaNjeB}/>
-                                <span >Klienti</span>
-                                </label><br/>
-
-                                <label className="label">
-                                <input type="radio" name="pergjegjesi" value="pala" id="pala" onChange={pyetjaNjeB} />
-                                <span >Pala e trete</span>
-                                </label>
-                            </div>
-                        </div>
-
-
-                        <div className="flex-2">
                             <div id="1c">
-                                <p className="margin-bottom">c.Cila eshte platforma qe do te ndertohet?</p>
+                                <p className="margin-bottom">c.{translate('pytj1c')}</p>
 
                                 <label className="label" >
                                 <input type="radio" name="platform" value="wordpress" id="wordpress" checked={platforma === 'wordpress' ? true : false} onChange={pyetjaNjeC}/>
@@ -338,10 +322,31 @@ const Website = () => {
                                 <span>Magento</span>
                                 </label>
                             </div>
+                        </div>
 
+
+                        <div className="flex-2">
+                        <div id="1b">
+                                    <p className="margin-bottom">b.{translate('pytj1b')}</p>
+
+                                <label className="label">
+                                <input type="radio" name="pergjegjesi" value="codeit" id="codeit" checked={hedhjaProdukteveEcommerce === 'codeit' ? true : false} onChange={pyetjaNjeB}/>
+                                <span>codeIT</span>
+                                </label><br/>
+
+                                <label className="label">
+                                <input type="radio" name="pergjegjesi" value="klienti" id="klienti" onChange={pyetjaNjeB}/>
+                                <span >Klienti</span>
+                                </label><br/>
+
+                                <label className="label">
+                                <input type="radio" name="pergjegjesi" value="pala" id="pala" onChange={pyetjaNjeB} />
+                                <span>{translate('alternativa1pytj1b')}</span>
+                                </label>
+                            </div>
 
                             <div id="1d" style={{ marginRight: "75px" }}>
-                                <p className="margin-bottom">d.Cilat do te te jene menyrat e pageses?</p>
+                                <p className="margin-bottom">d.{translate('pytj1d')}</p>
 
                                 <label className="label">
                                 <input type="radio" name="pagesa" value="cash" id="cash" checked={pagesa === 'cash' ? true : false} onChange={pyetjaNjeD} />
@@ -367,29 +372,29 @@ const Website = () => {
                     </div>}
                 <div className="image-choice">
 
-                    <p className="p-dy">2.Kerkesat e dizajnit ne WEB</p>
+                    <p className="p-dy">2.{translate('pytja2')}</p>
                     <div className="choices">
                         <div className="flex-image">
                             <label htmlFor="thjeshte"><img className="img" src="golda.jpg" alt="golda" /></label>
                             <label className="label">
                             <input type="radio" name="foto" value="thjeshte" id="thjeshte" checked={dizajniWebit === 'thjeshte' ? true : false} onChange={pyetjaDy} />
-                            <span>I thjeshte</span>
+                            <span>{translate('alternativa1pytja2')}</span>
                             </label>
                         </div>
 
                         <div className="flex-image">
-                            <label htmlFor="avanc"><img className="img" src="Dosja.jpg" alt="dosja" /></label>
+                            <label htmlFor="avanc"><img className="img" src="limitless.jpg" alt="limitless" /></label>
                             <label className="label">
                             <input type="radio" name="foto" value="avanc" id="avanc" onChange={pyetjaDy}/>
-                            <span>I Avancuar</span>
+                            <span>{translate('alternativa2pytja2')}</span>
                             </label>
                         </div>
 
                         <div className="flex-image">
-                            <label htmlFor="kompleks"><img className="img" src="limitless.jpg" alt="limitless" /></label>
+                            <label htmlFor="kompleks"><img className="img" src="Dosja.jpg" alt="dosja" /></label>
                             <label className="label">
                             <input type="radio" name="foto" value="kompleks" id="kompleks" onChange={pyetjaDy} />
-                            <span>Kompleks</span>
+                            <span> {translate('alternativa3pytja2')} </span>
                             </label>
                         </div>
                     </div>
@@ -397,25 +402,25 @@ const Website = () => {
                 <div className="tre-kater">
 
                     <div id="p3">
-                        <p className="margin-bottom">3.Sa gjuhe do jene ne webin tuaj?</p>
+                        <p className="margin-bottom">3.{translate('pytja3')}</p>
 
                         <label className="label" >
                         <input type="radio" name="gjuha" id="nje" value="nje" checked={gjuhetWeb === 'nje' ? true : false} onChange={pyetjaTre}/>
-                        <span>Nje gjuhe</span>
+                        <span>{translate('alternativa1pytja3')}</span>
                         </label><br/>
 
                         <label className="label">
                         <input type="radio" name="gjuha" id="shume" value="shume" onChange={pyetjaTre}/>
-                        <span>Shume Gjuhe</span>
+                        <span>{translate('alternativa2pytja3')}</span>
                         </label>
                     </div>
 
                     <div id="p4">
-                        <p className="margin-bottom">4.Nga cila pale do te te behet hedhja e materialeve?</p>
+                        <p className="margin-bottom">4.{translate('pytja4')}</p>
 
                         <label className="label">
                         <input type="radio" name="materiale" id="klient" value="klient" checked={hedhjaMaterialeveWeb === 'klient' ? true : false} onChange={pyetjaKater} />
-                        <span>Klienti</span>
+                        <span>{translate('alternativa1pytja4')}</span>
                         </label><br/>
 
                         <label className="label">
@@ -427,11 +432,11 @@ const Website = () => {
 
                 <div className="pes-gjashte">
                     <div id="p5">
-                        <p className="margin-bottom">5.Sa faqe kryesore ka web-i?</p>
+                        <p className="margin-bottom">5.{translate('pytja5')}</p>
 
                         <label className="label">
-                        <input type="radio" name="nrfaqeve" id="pes" value="pes" checked={faqetNeWeb === '5' ? true : false} onChange={pyetjaPes} />
-                        <span>1-5: <span className="span">(Home,Rreth Nesh,Sherbime,Galeri,Kontakt)</span></span>
+                        <input type="radio" name="nrfaqeve" id="pes" value="5" checked={faqetNeWeb === '5' ? true : false} onChange={pyetjaPes} />
+                        <span>1-5: <span className="span">({translate('faqet')})</span></span>
                         </label><br/>
 
                         <label className="label">
@@ -446,54 +451,54 @@ const Website = () => {
 
                     </div>
                     <div id="p6">
-                        <p className="margin-bottom">6.A keni host dhe domain?</p>
+                        <p className="margin-bottom">6.{translate('pytja6')}</p>
 
                         <label className="label">
                         <input type="radio" name="hostdomain" value="skam" id="skam" checked={hostDomain === 'skam' ? true : false} onChange={pyetjaSix} />
-                        <span>Nuk kam asnjeren</span>
+                        <span>{translate('alternativa1pytja6')}</span>
                         </label><br/>
 
                         <label className="label">
                         <input type="radio" name="hostdomain" value="kamhost" id="kamhost" onChange={pyetjaSix}/>
-                        <span>Kam Host</span>
+                        <span>{translate('alternativa2pytja6')}</span>
                         </label><br/>
 
                         <label className="label">
                         <input type="radio" name="hostdomain" value="kamdomain" id="kamdomain" onChange={pyetjaSix}/>
-                        <span>Kam Domain</span>
+                        <span>{translate('alternativa3pytja6')}</span>
                         </label><br/>
 
                         <label className="label">
                         <input type="radio" name="hostdomain" value="tedyja" id="tedyja" onChange={pyetjaSix}/>
-                        <span>Kam Host & Domain</span>
+                        <span>{translate('alternativa4pytja6')}</span>
                         </label>
                     </div>
                 </div>
                 <div className="shtate">
-                    <p className="margin-bottom">7.Sa e rendesishme eshte renditja e web-it tuaj ne motoret e kerkimit?</p>
+                    <p className="margin-bottom">7.{translate('pytja7')}</p>
 
                     <label className="label">
                     <input type="radio" name="seo" value="aspak" id="aspak" checked={rendesiaSEO === 'aspak' ? true : false} onChange={pyetjaSeven} />
-                    <span>Aspak e rendesishme</span>
+                    <span>{translate('alternativa1pytja7')}</span>
                     </label><br/>
 
                     <label className="label">
                     <input type="radio" name="seo" value="pak" id="pak" onChange={pyetjaSeven}/>
-                    <span>Pak e rendesishme</span>
+                    <span>{translate('alternativa2pytja7')}</span>
                     </label><br/>
 
                     <label className="label">
                     <input type="radio" name="seo" value="rendesishme" id="rendesishme" onChange={pyetjaSeven}/>
-                    <span>E rendesishme</span>
+                    <span>{translate('alternativa3pytja7')}</span>
                     </label><br/>
 
                     <label className="label">
                     <input type="radio" name="seo" value="shum" id="shum" onChange={pyetjaSeven}/>
-                    <span>Shume e rendesishme</span>
+                    <span>{translate('alternativa4pytja7')}</span>
                     </label>
                 </div>
                 <div className="tete">
-                    <p>8.Ne web do te te kete element si: <span className="span">(mund te zgjidhni me shume se 1 alternative)</span></p>
+                    <p>8.{translate('pytja8')}<span className="span">({translate('alternativa')})</span></p>
                     <div className="checkboxes-choice">
 
                         <div className="flex-check1">
@@ -505,12 +510,12 @@ const Website = () => {
 
                             <div>
                                 <input className="checkbox-choices"  type="checkbox" name="element"  id="portofolio" value="portofolio" onClick={pyetjaTet}/>
-                                <label htmlFor="portofolio">Portofolio</label>
+                                <label htmlFor="portofolio">Portfolio</label>
                             </div>
 
                             <div>
                                 <input className="checkbox-choices"  type="checkbox" name="element" id="rez-kalendar" value="rez-kalendar" onClick={pyetjaTet}/>
-                                <label htmlFor="rez-kalendar">Rezervime/Kalendar eventesh</label>
+                                <label htmlFor="rez-kalendar">{translate('alternativa5pytja8')}</label>
                             </div>
 
                         </div>
@@ -519,17 +524,17 @@ const Website = () => {
 
                             <div>
                                 <input className="checkbox-choices"  type="checkbox" name="element" id="artikuj" value="artikuj" onClick={pyetjaTet}/>
-                                <label htmlFor="artikuj">Artikuj</label>
+                                <label htmlFor="artikuj">{translate('alternativa1pytja8')}</label>
                             </div>
 
                             <div>
                                 <input className="checkbox-choices"  type="checkbox" name="element" id="faq" value="faq" onClick={pyetjaTet} />
-                                <label htmlFor="faq">FAQ-s</label>
+                                <label htmlFor="faq">{translate('alternativa2pytja8')}</label>
                             </div>
 
                             <div>
                                 <input className="checkbox-choices"  type="checkbox" name="element" id="livechat" value="livechat" onClick={pyetjaTet} />
-                                <label htmlFor="livechat">Live Chat</label>
+                                <label htmlFor="livechat">{translate('alternativa3pytja8')}</label>
                             </div>
 
                         </div>
@@ -543,7 +548,7 @@ const Website = () => {
 
                             <div>
                                 <input className="checkbox-choices"  type="checkbox" name="element" id="prof-perdorues" value="prof-perdorues" onClick={pyetjaTet}/>
-                                <label htmlFor="prof-perdorues">Profil Perdoruesish</label>
+                                <label htmlFor="prof-perdorues">{translate('alternativa4pytja8')}</label>
                             </div>
 
                             <div>
@@ -558,7 +563,7 @@ const Website = () => {
 
                 <div className="web-marketing">
 
-                    <h3>Deshironi marketing?</h3>
+                    <h3>{translate('domarketing')}</h3>
 
                     <div className="switch_box box_4">
                         <div className="input_wrapper">
@@ -577,26 +582,26 @@ const Website = () => {
                     <>
                         <div className="nenta">
 
-                            <p className="margin-bottom">9.Biznesit tuaj i nevojitet:<span className="span">(mund te zgjidhni me shume se 1 alternative)</span></p>
+                            <p className="margin-bottom">9.{translate('pytja9')}<span className="span">({translate('alternativa')})</span></p>
                             <div className="marketing-9">
 
                                 <input type="checkbox" className="checkbox-choices" name="nevojitet" id="emer" value="emer" onClick={pyetjaNine} />
-                                <label htmlFor="emer">Emer</label><br />
+                                <label htmlFor="emer">{translate('alternativa1pytja9')}</label><br/>
 
                                 <input type="checkbox" className="checkbox-choices" name="nevojitet" id="logo" value="logo" onClick={pyetjaNine}/>
                                 <label htmlFor="logo">Logo</label><br />
 
                                 <input type="checkbox" className="checkbox-choices" name="nevojitet" id="imazh-marke" value="imazh-marke" onClick={pyetjaNine}/>
-                                <label htmlFor="imazh-marke">Imazh Marke</label><br />
+                                <label htmlFor="imazh-marke">{translate('alternativa2pytja9')}</label><br />
 
                                 <input type="checkbox" className="checkbox-choices" name="nevojitet" id="tetreja" value="tetreja" onClick={pyetjaNine}/>
-                                <label htmlFor="tetreja">Te treja</label>
+                                <label htmlFor="tetreja">{translate('alternativa3pytja9')}</label>
                             </div>
                         </div>
 
                         <div className="dhjeta">
                             <div className="dhjeta-left">
-                                <p>10.Deshiron menaxhim te mediave Sociale?</p>
+                                <p>10.{translate('pytja10')}</p>
 
                                 <div className="switch_box box_4">
                                     <div className="input_wrapper">
@@ -612,7 +617,7 @@ const Website = () => {
                             </div>
                             {duaMenaxhimSocial === true &&
                                 <div className="dhjeta-right">
-                                    <p className="margin-bottom">Cila eshte frekuenca e postimeve ne media gjate javes?</p>
+                                    <p className="margin-bottom">{translate('pytja10a')}</p>
                                     <label className="label">
                                     <input type="radio" name="frekuenca" id="3" value="3" onClick={pyetjaTen} />
                                     <span>1-3</span>
@@ -637,7 +642,7 @@ const Website = () => {
 
                         <div className="eleven">
                             <div className="eleven-left">
-                                <p>11.Ju duhet set fotografik?</p>
+                                <p>11.{translate('pytja11')}</p>
                                 <div className="switch_box box_4">
                                     <div className="input_wrapper">
                                         <input type="checkbox" className="switch_4" onChange={(event) => vendosSetFotografik(event.currentTarget.checked)} checked={duaSetFotografik} />
@@ -654,15 +659,15 @@ const Website = () => {
                             {duaSetFotografik === true &&
                                 <div className="eleven-right">
 
-                                    <p className="margin-bottom">Sa here ne muaj ju nevojitet seti fotografik?</p>
+                                    <p className="margin-bottom">{translate('pytja11a')}</p>
                                     <label className="label">
                                     <input type="radio" name="seti" id="1here" value="1here" onClick={pyetjaEleven} />
-                                    <span>1 here ne muaj</span>
+                                    <span>{translate('alternativa1pytja11a')}</span>
                                     </label><br/>
 
                                     <label className="label">
                                     <input type="radio" name="seti" id="2here" value="2here" onClick={pyetjaEleven} />
-                                    <span>2 here ne muaj</span>
+                                    <span>{translate('alternativa2pytja11a')}</span>
                                     </label>
                                 </div>
 
@@ -672,7 +677,7 @@ const Website = () => {
 
                         <div className="twelve">
                             <div className="twelve-left">
-                                <p>12.Deshironi fushat marketingu?</p>
+                                <p>12.{translate('pytja12')}</p>
                                 <div className="switch_box box_4">
                                     <div className="input_wrapper">
                                         <input type="checkbox" className="switch_4" onChange={(event) => vendoFushatMarketingu(event.currentTarget.checked)} checked={duaFushatMarketingu} />
@@ -689,7 +694,7 @@ const Website = () => {
                             {duaFushatMarketingu === true &&
                                 <div className="twelve-right">
 
-                                    <p className="margin-bottom">Ku deshironi te promovoheni?<span className="span-2">(mund te zgjidhni me shume se 1 alternative)</span></p>
+                                    <p className="margin-bottom">{translate('pytja12a')}<span className="span-2">({translate('alternativa')})</span></p>
                                     <input type="checkbox" className="checkbox-choices" name="promovim" id="tv" value="tv" onClick={pyetjaTweleve} />
                                     <label htmlFor="tv">TV</label><br />
 
@@ -703,15 +708,13 @@ const Website = () => {
                                     <label htmlFor="portale-m">Portale</label><br />
 
                                     <input type="checkbox" className="checkbox-choices" name="promovim" id="tegjitha" value="tegjitha" onClick={pyetjaTweleve}/>
-                                    <label htmlFor="tegjitha">Te gjitha</label>
+                                    <label htmlFor="tegjitha">{translate('alternativa1pytja12a')}</label>
                                 </div>
-
                             }
                         </div>
-
                         <div className="thirteen">
 
-                            <p>13.Deshironi ta regjistroni marken ligjerisht?</p>
+                            <p>13.{translate('pytja13')}</p>
                             <div className="switch_box box_4">
                                 <div className="input_wrapper">
                                     <input type="checkbox" className="switch_4"  onClick={pytetja13} />
@@ -733,19 +736,24 @@ const Website = () => {
 
                         <div className="submit-app">
                             <div className="left">
-                                <p>Plotesoni fushat duke na derguar automatikisht te dhenat e kerkeses</p>
-                                <input type="text" placeholder="Emri*" value={emri}  onChange={(e) => vendosEmer(e.target.value)} required />
+                                <p>{translate('titulliformes')}</p>
+                                <label htmlFor=""> {translate('emri')} </label>
+                                <input type="text" value={emri}  onChange={(e) => vendosEmer(e.target.value)} required />
+                                <label htmlFor="">Email</label>
                                 <input type="email" placeholder="Email*" value={email} onChange={(e) => vendosEmail(e.target.value)} required />
-                                <input type="tel" placeholder="Tel*" value={tel} onChange={(e) => vendosTel(e.target.value)} required />
+                                <label htmlFor=""> {translate('phone')} </label>
+                                <input type="tel" placeholder="Cel..." value={tel} onChange={(e) => vendosTel(e.target.value)}  />
 
                             </div>
                             <div className="right">
-                                <textarea name="kerkesetjeter" id="kerkesetjeter" value={kerkeseTjeter} placeholder="Kerkese Tjeter" cols="30" rows="10" onChange={(e) => vendosKerkese(e.target.value)}></textarea>
+                                <label htmlFor="">{translate('kerkesa')}</label>
+                                <textarea name="kerkesetjeter" id="kerkesetjeter" value={kerkeseTjeter}  cols="30" rows="10" onChange={(e) => vendosKerkese(e.target.value)}></textarea>
                             </div>
 
                         </div>
                         <div className="submit">
-                            <input type="submit" value="Dergo Kerkesen"  />
+                            <label className="submit-button" htmlFor="submit">{translate('dergo')}</label>
+                            <input  id="submit" type="submit" hidden  />
                         </div>
                     </div>
                 </div>

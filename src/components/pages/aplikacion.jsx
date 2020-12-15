@@ -1,5 +1,5 @@
 import React,{useState}from 'react'
-
+import translate from '../../i18n/translate';
 
 const Aplikacion = () => {
 
@@ -59,26 +59,31 @@ const Aplikacion = () => {
         </div>
         </div>
             <div className="aplikacion">
-                <p style={{marginTop:"10px"}}>Specifiko ne detaje kerkesat dhe funksionalitetet e aplikacionit</p>
+                <p style={{marginTop:"10px"}}>{translate('appTitle')}</p>
                 <form className="form-aplikacion" onSubmit={submit} >
                     <div className="white">
-                    <textarea className="specifik" name="textarea-app" value={specifikat} placeholder="Specifiko.." id="textarea-app" cols="30" rows="10" onChange={(e) => setSpecifiko(e.target.value)} ></textarea>
+                    <textarea className="specifik" name="textarea-app" value={specifikat}  id="textarea-app" cols="30" rows="10" onChange={(e) => setSpecifiko(e.target.value)} ></textarea>
                    </div>
                     <div className="submit-app">
                             <div className="left">
-                                <p>Plotesoni fushat duke na derguar automatikisht te dhenat e kerkeses</p>
-                                <input type="text" placeholder="Emri*" value={emri} onChange={(e) => vendosEmer(e.target.value)} required/>
+                                <p>{translate('titulliformes')}</p>
+                                <label htmlFor="">{translate('emri')}</label>
+                                <input type="text" value={emri} onChange={(e) => vendosEmer(e.target.value)} required/>
+                                <label htmlFor="">Email</label>
                                 <input type="email" placeholder="Email*" value={email} onChange={(e) => vendosEmail(e.target.value)} required/>
-                                <input type="tel" placeholder="Tel*" value={tel}  onChange={(e) => vendosTel(e.target.value)} required/>
+                                <label htmlFor="">{translate('phone')}</label>
+                                <input type="tel" placeholder="Cel..." value={tel}  onChange={(e) => vendosTel(e.target.value)} />
 
                             </div>
                             <div className="right">
-                                <textarea name="kerkesetjeter" id="kerkesetjeter" value={kerkeseTjeter} placeholder="Kerkese Tjeter" cols="30" rows="10" onChange={(e) => vendosKerkese(e.target.value)}></textarea>
+                                <label htmlFor="">{translate('kerkesa')}</label>
+                                <textarea name="kerkesetjeter" id="kerkesetjeter" value={kerkeseTjeter}  cols="30" rows="10" onChange={(e) => vendosKerkese(e.target.value)}></textarea>
                             </div>
 
                     </div>
                     <div className="submit">
-                            <input type="submit" value="Dergo Kerkesen"/>
+                            <label className="submit-button" htmlFor="submit">{translate('dergo')}</label>
+                            <input  hidden id="submit" type="submit" />
                     </div>
                 </form>
             </div>
