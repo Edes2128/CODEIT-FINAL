@@ -1008,12 +1008,13 @@ textarea {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-
+    height: auto;
   }
 
   .flex-1 {
     flex-direction: column;
     padding: 15px;
+    width: 100%;
   }
 
   .flex-1 div {
@@ -1024,6 +1025,7 @@ textarea {
     padding: 15px;
     flex-direction: column;
     margin: 0;
+    width: 100%;
   }
 
   .flex-2 div {
